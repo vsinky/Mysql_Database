@@ -336,6 +336,6 @@ OR id >150;
 SELECT *  
 FROM people  
 WHERE (occupation= 'Leader' AND   name = 'Renu')  
-OR (id >106);
+OR (id >107);
 
 
