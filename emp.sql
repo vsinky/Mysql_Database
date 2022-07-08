@@ -237,5 +237,104 @@ VALUES (1,5544,2) ,
 select * from Persons_3;
 select * from Orders;
 
+/*MySQL INSERT*/
+CREATE TABLE People(  
+    id int NOT NULL AUTO_INCREMENT,  
+    name varchar(45) NOT NULL,  
+    occupation varchar(35) NOT NULL,  
+    age int,  
+    PRIMARY KEY (id)  
+);  
+INSERT INTO People (id, name, occupation, age)   
+VALUES (101, 'Sandeep', 'Engineer', 32); 
 
-  
+INSERT INTO People VALUES  
+(102, 'Preety', 'Developer', 30),  
+(103, 'Renu', 'Leader', 28),  
+(104, 'Satya', 'Scientist', 45);   
+
+select* from people;
+INSERT INTO People (name, occupation)   
+VALUES ('Sinky', 'Scientist'), ('Brijkishor', 'Actor');    
+
+/*Update Column*/
+UPDATE People  
+SET age = 25, occupation = 'Content Writer'  
+WHERE id = 105;  
+
+select * from people;
+
+/*REPLACE*/
+UPDATE People  
+SET name = REPLACE(name ,'Brijkishor','Monu')
+WHERE id = 106;  
+
+/*DELETE*/
+DELETE FROM people WHERE id=106;  
+select* from people;
+
+/*SELECT*/
+ SELECT Name FROM people;
+ 
+ /*Replace*/
+ CREATE TABLE Person_4 (  
+  ID int AUTO_INCREMENT PRIMARY KEY,  
+  Name varchar(45) DEFAULT NULL,  
+  Email varchar(45) DEFAULT NULL UNIQUE,  
+  City varchar(25) DEFAULT NULL  
+);  
+
+INSERT INTO Person_4(ID, Name, Email, City)   
+VALUES (1,'Mike', 'mike@javatpoint.com', 'California'),   
+(2, 'Alexandar', 'alexandar@javatpoint.com', 'New York'),   
+(3, 'Adam', 'adam@javatpoint.com', 'Los Angeles'),  
+(4, 'Peter', 'Peter@javatpoint.com', 'Alaska');  
+
+select* from Person_4;
+ 
+ REPLACE INTO Person_4 (id, city)  
+VALUES(4, 'delhi');  
+
+/*Where */
+Select * from Person_4 
+WHERE ID = 2;
+
+Select * from Person_4 
+WHERE ID = 1 OR ID = 2;
+
+/*ASC/DESC attribute*/
+SELECT *  
+FROM person_4 
+WHERE Name = 'Adam'  
+ORDER BY City ASC; 
+ 
+SELECT Name, City 
+FROM person_4  
+WHERE ID < 4  
+ORDER BY Name DESC, City ASC;  
+
+/*GROUP BY Clause with COUNT function*/
+SELECT City, COUNT(*)  
+FROM   person_4   
+GROUP BY City;   
+
+/*AND*/
+Select *from people;
+
+SELECT *  
+FROM people  
+WHERE name = 'Renu'  
+AND id >101;  
+
+/*OR*/
+SELECT *  
+FROM people  
+WHERE name = 'Renu'  
+OR id >150; 
+
+/*AND OR*/
+SELECT *  
+FROM people  
+WHERE (occupation= 'Leader' AND   name = 'Renu')  
+OR (id >105);
+
